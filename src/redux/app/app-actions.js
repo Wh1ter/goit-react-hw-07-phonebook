@@ -1,20 +1,34 @@
-import types from "./app-types";
+import axios from "axios";
 import { createAction } from "@reduxjs/toolkit";
-import { uuid } from "uuidv4";
 
 
-const addContact = createAction("app/addContact", (contactData) => {
-  return {
-    payload: {
-      id: uuid(),
-      name: contactData.name,
-      number: contactData.number,
-    },
-  };
-});
+axios.defaults.baseURL = "http://localhost:4040";
 
-const deleteContact = createAction("app/deleteContact");
+const addContactRequest = createAction("contacts/addContactRequest");
+const addContactSuccess = createAction("contacts/addContactSuccess");
+const addContactError = createAction("contacts/addContactError");
+
+const deleteContactRequest = createAction("contacts/deleteContactRequest");
+const deleteContactSuccess = createAction("contacts/deleteContactSuccess");
+const deleteContactError = createAction("contacts/deleteContactError");
+
+const fetchContactRequest = createAction("contacts/fetchContactRequest");
+const fetchContactSuccess = createAction("contacts/fetchContactSuccess");
+const fetchContactError = createAction("contacts/fetchContactError");
+
 
 const filterSet = createAction("app/setFilterArr");
 
-export default { addContact, deleteContact, filterSet };
+// eslint-disable-next-line
+export default {
+  filterSet,
+  addContactRequest,
+  addContactSuccess,
+  addContactError,
+  deleteContactRequest,
+  deleteContactSuccess,
+  deleteContactError,
+  fetchContactRequest,
+  fetchContactSuccess,
+  fetchContactError,
+};

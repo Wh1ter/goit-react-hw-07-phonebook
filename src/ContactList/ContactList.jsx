@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-// import { v4 as uuidv4 } from 'uuid';
 import { uuid } from "uuidv4";
-
-
 
 class ContactList extends Component {
   deleteId = (Id) => {
@@ -29,10 +26,12 @@ class ContactList extends Component {
     return <ul>{this.createList()}</ul>;
   }
 }
+
 ContactList.propTypes = {
-  contacts: PropTypes.array.isRequired,
+  contacts: PropTypes.array,
   del: PropTypes.func.isRequired,
 };
+
 ContactList.defaultProps = {
   contacts: [],
 };

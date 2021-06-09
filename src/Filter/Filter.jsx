@@ -20,4 +20,5 @@ class Filter extends Component {
 Filter.propTypes = {
   setFilterToState: PropTypes.func.isRequired,
 };
+
 export default Filter;
