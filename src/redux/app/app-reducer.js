@@ -13,7 +13,7 @@ const contacts = createReducer([], {
     if (!nameArray.includes(payload.name)) {
       return [...state, payload];
     } else {
-      alert(" No !!!");
+      alert("Этот номер уже есть в базe !!!");
       return state;
     }
   },
@@ -34,6 +34,8 @@ const loading = createReducer(false, {
   [actions.fetchContactSuccess]: () => false,
   [actions.fetchContactError]: () => false,
 });
+
+// _ - parameter not used
 
 const filters = createReducer("", {
   [actions.filterSet]: (state, { payload }) => {
